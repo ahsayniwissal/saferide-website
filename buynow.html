@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeRide Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #efc000;
+        --primary-light: #f8d84a;
+        --dark: #121212;
+        --darker: #000000;
+        --light: #ffffff;
+        --gray: #b3b3b3;
+        --success: #3cff00;
+        --error: #ff4d4d;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--darker);
+        color: var(--light);
+        font-family: "Inter", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .checkout {
+        background-color: var(--dark);
+        padding: 2rem;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        border: 1px solid #333;
+      }
+
+      .logo {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .logo h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .safe {
+        color: white;
+      }
+
+      .ride {
+        color: var(--primary);
+      }
+
+      .checkout-title {
+        text-align: center;
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .input-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--gray);
+      }
+
+      input,
+      #card-element {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        font-size: 1rem;
+        background: #1e1e1e;
+        color: var(--light);
+        transition: all 0.2s;
+      }
+
+      input:focus,
+      #card-element:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(239, 192, 0, 0.3);
+      }
+
+      button {
+        width: 100%;
+        padding: 16px;
+        background-color: var(--primary);
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 0.5rem;
+      }
+
+      button:hover {
+        background-color: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(239, 192, 0, 0.3);
+      }
+
+      button:disabled {
+        opacity: 0.7;
+        transform: none !important;
+      }
+
+      #payment-result {
+        margin-top: 1.5rem;
+        padding: 12px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 0.875rem;
+        display: none;
+      }
+
+      .success {
+        background-color: rgba(60, 255, 0, 0.1);
+        color: var(--success);
+        display: block;
+        border: 1px solid rgba(60, 255, 0, 0.3);
+      }
+
+      .error {
+        background-color: rgba(255, 77, 77, 0.1);
+        color: var(--error);
+        display: block;
+        border: 1px solid rgba(255, 77, 77, 0.3);
+      }
+
+      .secure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+        font-size: 0.75rem;
+        color: var(--gray);
+      }
+
+      .secure svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--success);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="checkout">
+      <div class="logo">
+        <h2><span class="safe">Safe</span><span class="ride">Ride</span></h2>
+      </div>
+
+      <p class="checkout-title">Complete Your Checkout</p>
+
+      <form id="payment-form">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="John Doe" required />
+        </div>
+
+        <div class="input-group">
+          <label>Card Details</label>
+          <div id="card-element"></div>
+        </div>
+
+        <button type="submit" id="submit-button">Pay Now</button>
+
+        <div id="payment-result"></div>
+      </form>
+
+      <div class="secure">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11V11.99z"
+          />
+        </svg>
+        <span>Secure payment processed by Stripe</span>
+      </div>
+    </div>
+
+    <script>
+      const stripe = Stripe("pk_test_51YourTestKeyHere"); // Replace with your test key
+
+      // Set up Stripe Elements
+      const elements = stripe.elements();
+      const card = elements.create("card", {
+        style: {
+          base: {
+            color: "#ffffff",
+            fontFamily: '"Inter", sans-serif',
+            fontSize: "16px",
+            "::placeholder": {
+              color: "#b3b3b3",
+            },
+            iconColor: "#efc000",
+          },
+        },
+      });
+
+      card.mount("#card-element");
+
+      // Handle form submission
+      const form = document.getElementById("payment-form");
+      const submitButton = document.getElementById("submit-button");
+      const paymentResult = document.getElementById("payment-result");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Disable button to prevent multiple submissions
+        submitButton.disabled = true;
+        submitButton.textContent = "Processing...";
+
+        try {
+          const { paymentMethod, error } = await stripe.createPaymentMethod({
+            type: "card",
+            card: card,
+            billing_details: {
+              name: document.getElementById("name").value,
+            },
+          });
+
+          if (error) {
+            throw error;
+          }
+
+          // Simulate a successful payment
+          setTimeout(() => {
+            paymentResult.textContent =
+              "Payment successful! Your order is confirmed.";
+            paymentResult.className = "success";
+            submitButton.textContent = "🎉 Thank You!";
+          }, 1500);
+        } catch (error) {
+          paymentResult.textContent = error.message;
+          paymentResult.className = "error";
+          submitButton.disabled = false;
+          submitButton.textContent = "Pay Now";
+        }
+      });
+
+      // Show errors as they type
+      card.on("change", (event) => {
+        if (event.error) {
+          paymentResult.textContent = event.error.message;
+          paymentResult.className = "error";
+        } else {
+          paymentResult.textContent = "";
+          paymentResult.className = "";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeRide</title>
+    <link rel="icon" href="pics/icon.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="./src/style.css" rel="stylesheet" />
+  </head>
+  <body class="text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg border-b border-gray-800"
+    >
+      <div class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-4">
+            <img src="./pics/logo.png" alt="logo" width="60%" />
+          </div>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="hover:text-yellow-500 transition">Home</a>
+            <a href="#about" class="hover:text-yellow-500 transition">About</a>
+            <a href="#XALT" class="hover:text-yellow-500 transition">XALT</a>
+            <a href="#features" class="hover:text-yellow-500 transition"
+              >Features</a
+            >
+            <a href="#usecases" class="hover:text-yellow-500 transition"
+              >Use Cases</a
+            >
+            <a href="#contact" class="hover:text-yellow-500 transition"
+              >Contact</a
+            >
+          </div>
+
+          <div class="md:hidden flex items-center">
+            <button
+              id="menu-btn"
+              class="text-gray-500 dark:text-gray-300 focus:outline-none"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+          <div class="flex flex-col space-y-3">
+            <a href="#home" class="hover:text-yellow-500 transition">Home</a>
+            <a href="#about" class="hover:text-yellow-500 transition">About</a>
+            <a href="#XALT" class="hover:text-yellow-500 transition">XALT</a>
+            <a href="#features" class="hover:text-yellow-500 transition"
+              >Features</a
+            >
+            <a href="#usecases" class="hover:text-yellow-500 transition"
+              >Use Cases</a
+            >
+            <a href="#contact" class="hover:text-yellow-500 transition"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-40 ved duration-300">
+      <div
+        class="container mx-auto px-6 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 fade-in">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">
+            Stay Safe While You <span class="gradient-text"> Ride</span>
+          </h1>
+          <p class="text-lg md:text-xl mb-8 text-gray-600 dark:text-gray-300">
+            Our smart fall detection app monitors your rides and alerts
+            emergency contacts if an accident occurs. Peace of mind for you and
+            your loved ones.
+          </p>
+          <div class="flex space-x-4">
+            <button
+              class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full font-medium transition-all transform hover:scale-105"
+            >
+              Download Now
+            </button>
+            <button
+              class="border-2 border-yellow-500 text-yellow-500 dark:text-yellow-400 hover:bg-yellow-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all transform hover:scale-105"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+        <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+          <div class="relative floating header__image">
+            <img
+              src="./pics/header.png"
+              alt="App Screenshot"
+              class="relative w-64 h-64 md:w-80 md:h-80 object-contain"
+              width="90%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 ved duration-300">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            About Safe <span class="gradient-text">Ride</span>
+          </h2>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Our mission is to save lives by providing fast alerts in case of
+            vehicle-related falls.
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0 flex items-center justify-center">
+            <img
+              src="./pics/background.jpg"
+              alt="About Image"
+              class="w-72 h-72 md:w-72 md:h-72 rounded-full object-cover floating"
+              width="50"
+            />
+          </div>
+          <div class="md:w-1/2 md:pl-12">
+            <h3 class="text-2xl font-bold mb-6">Protecting Riders Worldwide</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Whether you're riding a motorcycle or cycling in the mountains,
+              our app detects accidents and makes sure help is on the way. We
+              combine mobile sensors and real-time alerts to bring peace of mind
+              to you and your loved ones.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div
+                  class="bg-yellow-100 dark:bg-yellow-900 p-2 rounded-full mr-4"
+                >
+                  <i
+                    class="fas fa-heart text-yellow-500 dark:text-yellow-300"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Safety First</h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Your well-being is our top priority
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="bg-yellow-100 dark:bg-yellow-900 p-2 rounded-full mr-4"
+                >
+                  <i
+                    class="fas fa-bolt text-yellow-500 dark:text-yellow-300"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Instant Alerts</h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Fast response when you need it most
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="bg-yellow-100 dark:bg-yellow-900 p-2 rounded-full mr-4"
+                >
+                  <i
+                    class="fas fa-cogs text-yellow-500 dark:text-yellow-300"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Smart Technology</h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Advanced algorithms for accurate detection
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- XALT -->
+    <section id="XALT" class="py-20 ved duration-300">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <span class="gradient-text">XALT</span>
+          </h2>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Your Smart Safety Ally
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col-reverse md:flex-row items-center gap-12"
+          style="height: 400px"
+        >
+          <!-- Text Content -->
+          <div class="md:w-1/2 md:pl-12 text-center md:text-left">
+            <p
+              class="text-gray-600 dark:text-gray-300 mb-6"
+              style="line-height: 150%"
+            >
+              XALT is a compact, robust, and intelligent device designed to
+              ensure the safety of motorcycle, bicycle, and scooter riders.
+              Thanks to its advanced sensors, it protects you, detects
+              incidents, and deters threats—wherever you go.
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mr-3"
+                >
+                  <i class="fa-solid fa-triangle-exclamation text-black"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Safety First</h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Theft detection and alert system
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mr-3"
+                >
+                  <i class="fa-solid fa-bullhorn text-black"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Instant Alerts</h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Instant fall or crash detection
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mr-3"
+                >
+                  <i class="fa-solid fa-shield-halved text-black"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Smart Technology</h4>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Powerful alarm in case of unconsciousness
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              onclick="window.location.href='order.html'"
+              class="border-2 w-64 border-yellow-500 text-yellow-500 dark:text-yellow-400 hover:bg-yellow-500 hover:text-white px-6 py-3 rounded-full font-medium transition-all transform hover:scale-105 mt-10"
+            >
+              ORDER XALT
+            </button>
+          </div>
+
+          <!-- Image -->
+          <div class="md:w-1/2 flex items-center justify-center">
+            <img
+              src="./pics/Design_sans_titre__3_-removebg-preview.png"
+              alt="About Image"
+              class="floating object-contain max-w-xs sm:max-w-sm md:max-w-md w-full"
+              style="width: 66%; margin-top: 20%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 ved duration-300">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            How It <span class="gradient-text">Works</span>
+          </h2>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Our app uses advanced technology to keep you safe during your rides.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="fas fa-brain text-3xl text-yellow-500 dark:text-yellow-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Smart Detection</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Our app uses motion sensors to detect unusual falls from a bike,
+              scooter, or motorbike with 95% accuracy.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="fas fa-bell text-3xl text-yellow-500 dark:text-yellow-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Instant Alert</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Once a fall is detected, an alert is immediately sent to your
+              phone and emergency contacts within seconds.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg card-hover transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mb-6"
+            >
+              <i
+                class="fas fa-phone-alt text-3xl text-yellow-500 dark:text-yellow-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Emergency Call</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              The app can automatically contact emergency services or your
+              chosen contact in case of serious impact.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-16 rounded-xl p-8 text-white Image">
+          <div class="max-w-3xl mx-auto text-center">
+            <h3 class="text-2xl font-bold mb-4">
+              Ready to Ride with Confidence?
+            </h3>
+            <p class="mb-6">
+              Download SafeRide today and experience peace of mind on every
+              journey.
+            </p>
+            <button
+              class="bg-white text-yellow-500 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105"
+            >
+              Get the App Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="usecases" class="py-20 ved duration-300">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Who Can <span class="gradient-text">Benefit</span>
+          </h2>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            SafeRide is designed for anyone who rides on two wheels or needs
+            fall protection.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Use Case 1 -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4"
+              >
+                <i
+                  class="fas fa-motorcycle text-yellow-500 dark:text-yellow-300"
+                ></i>
+              </div>
+              <h3 class="text-lg font-bold">Motorcyclists</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+              Especially useful for riders on long journeys or in remote areas
+              where help might not be immediately available.
+            </p>
+          </div>
+
+          <!-- Use Case 2 -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4"
+              >
+                <i
+                  class="fas fa-biking text-yellow-500 dark:text-yellow-300"
+                ></i>
+              </div>
+              <h3 class="text-lg font-bold">Cyclists</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+              Perfect for mountain bikers or urban cyclists who want an extra
+              layer of protection during their rides.
+            </p>
+          </div>
+
+          <!-- Use Case 3 -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4"
+              >
+                <i
+                  class="fas fa-shipping-fast text-yellow-500 dark:text-yellow-300"
+                ></i>
+              </div>
+              <h3 class="text-lg font-bold">Delivery Drivers</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+              Essential for food delivery riders and couriers who spend long
+              hours on the road in all conditions.
+            </p>
+          </div>
+
+          <!-- Use Case 4 -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4"
+              >
+                <i
+                  class="fas fa-hiking text-yellow-500 dark:text-yellow-300"
+                ></i>
+              </div>
+              <h3 class="text-lg font-bold">Adventure Seekers</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+              For those who enjoy off-road biking or extreme sports where falls
+              are more likely to occur.
+            </p>
+          </div>
+
+          <!-- Use Case 5 -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4"
+              >
+                <i
+                  class="fas fa-wheelchair text-yellow-500 dark:text-yellow-300"
+                ></i>
+              </div>
+              <h3 class="text-lg font-bold">Elderly Riders</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+              Provides security for older adults using mobility scooters or
+              electric wheelchairs.
+            </p>
+          </div>
+
+          <!-- Use Case 6 -->
+          <div
+            class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300"
+            style="background-color: #222222"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4"
+              >
+                <i class="fas fa-user text-yellow-500 dark:text-yellow-300"></i>
+              </div>
+              <h3 class="text-lg font-bold">Solo Travelers</h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+              Crucial for individuals who ride alone and want assurance that
+              help will come if needed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 ved duration-300">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Frequently Asked <span class="gradient-text">Questions</span>
+          </h2>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Find answers to common questions about SafeRide.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <!-- FAQ Item 1 -->
+          <div class="mb-4 border-b border-gray-200 dark:border-gray-700 pb-4">
+            <button
+              class="faq-btn flex justify-between items-center w-full text-left focus:outline-none"
+            >
+              <h3 class="font-bold text-lg">How does the app detect falls?</h3>
+              <i
+                class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-content mt-2 text-gray-600 dark:text-gray-300 hidden"
+            >
+              <p>
+                SafeRide uses your smartphone's built-in accelerometer and
+                gyroscope to detect sudden changes in motion that indicate a
+                fall. Our advanced algorithms distinguish between normal riding
+                movements and actual falls to minimize false alarms.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="mb-4 border-b border-gray-200 dark:border-gray-700 pb-4">
+            <button
+              class="faq-btn flex justify-between items-center w-full text-left focus:outline-none"
+            >
+              <h3 class="font-bold text-lg">
+                Does the app work without internet?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-content mt-2 text-gray-600 dark:text-gray-300 hidden"
+            >
+              <p>
+                The fall detection works offline, but sending alerts requires an
+                internet connection. If no connection is available when a fall
+                is detected, the app will send the alert as soon as a connection
+                is restored.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="mb-4 border-b border-gray-200 dark:border-gray-700 pb-4">
+            <button
+              class="faq-btn flex justify-between items-center w-full text-left focus:outline-none"
+            >
+              <h3 class="font-bold text-lg">How quickly are alerts sent?</h3>
+              <i
+                class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-content mt-2 text-gray-600 dark:text-gray-300 hidden"
+            >
+              <p>
+                Alerts are typically sent within 10-15 seconds of a detected
+                fall. The app includes a countdown timer that gives you time to
+                cancel the alert if it was triggered accidentally.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="mb-4 border-b border-gray-200 dark:border-gray-700 pb-4">
+            <button
+              class="faq-btn flex justify-between items-center w-full text-left focus:outline-none"
+            >
+              <h3 class="font-bold text-lg">
+                Can I customize emergency contacts?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-content mt-2 text-gray-600 dark:text-gray-300 hidden"
+            >
+              <p>
+                Yes, you can add multiple emergency contacts and specify who
+                should be notified in different situations. You can also set up
+                different alert levels based on the severity of detected falls.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="mb-4 border-b border-gray-200 dark:border-gray-700 pb-4">
+            <button
+              class="faq-btn flex justify-between items-center w-full text-left focus:outline-none"
+            >
+              <h3 class="font-bold text-lg">Is my data private and secure?</h3>
+              <i
+                class="fas fa-chevron-down text-yellow-500 transition-transform duration-300"
+              ></i>
+            </button>
+            <div
+              class="faq-content mt-2 text-gray-600 dark:text-gray-300 hidden"
+            >
+              <p>
+                Absolutely. We take privacy seriously. Your location data is
+                only accessed when a fall is detected, and we never sell or
+                share your personal information with third parties.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 ved duration-300">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Get In <span class="gradient-text">Touch</span>
+          </h2>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-6"></div>
+          <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Have questions or want to learn more? Reach out to our team.
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <div
+              class="bg-gray-50 p-8 rounded-xl h-600"
+              style="background-color: #222222"
+            >
+              <h3
+                class="text-3xl text-center md:text-4xl font-bold gradient-text mb-6"
+              >
+                Contact Information
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full mr-4"
+                  >
+                    <i
+                      class="fas fa-envelope text-yellow-500 dark:text-yellow-300"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Email</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      ccontactsaferide224@gmail.com
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full mr-4"
+                  >
+                    <i
+                      class="fab fa-instagram text-yellow-500 dark:text-yellow-300"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Instagram</h4>
+                    <p class="text-gray-600 dark:text-gray-300">@SafeRideApp</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full mr-4"
+                  >
+                    <i
+                      class="fas fa-map-marker-alt text-yellow-500 dark:text-yellow-300"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Location</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                      Rabat-Salé-Kénitra, Morocco
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-10">
+                <h4 class="font-bold mb-4">Follow Us</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="https://www.instagram.com/saferide.ma/"
+                    class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a
+                    href="https://x.com/saferideservice"
+                    class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/saferide44/posts/?feedView=all"
+                    class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 md:pl-12">
+            <form
+              class="bg-gray-50 p-8 rounded-xl"
+              style="background-color: #222222"
+            >
+              <div class="mb-6">
+                <label for="name" class="block font-medium mb-2"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"
+                  style="background-color: #4e4d4d"
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="email" class="block font-medium mb-2"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"
+                  style="background-color: #4e4d4d"
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="subject" class="block font-medium mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"
+                  style="background-color: #4e4d4d"
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="message" class="block font-medium mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"
+                  style="background-color: #4e4d4d"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-bold transition-all transform hover:scale-105"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="text-gray-300 py-12 transition-colors duration-300"
+      style="background-color: #000000"
+    >
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="mb-8 md:mb-0">
+            <div class="flex items-center space-x-4 mb-4">
+              <img src="./pics/logo.png" alt="logo" width="60%" />
+            </div>
+            <p class="max-w-xs">
+              Your safety is our priority. Advanced fall detection technology
+              for riders everywhere.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#home" class="hover:text-yellow-400 transition"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a href="#about" class="hover:text-yellow-400 transition"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a href="#XALT" class="hover:text-yellow-500 transition"
+                    >XALT</a
+                  >
+                </li>
+                <li>
+                  <a href="#features" class="hover:text-yellow-400 transition"
+                    >Features</a
+                  >
+                </li>
+                <li>
+                  <a href="#usecases" class="hover:text-yellow-400 transition"
+                    >Use Cases</a
+                  >
+                </li>
+                <li>
+                  <a href="#contact" class="hover:text-yellow-400 transition"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold mb-4">Legal</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="hover:text-yellow-400 transition"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-yellow-400 transition"
+                    >Terms of Service</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="hover:text-yellow-400 transition"
+                    >Cookie Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold mb-4">Download</h3>
+              <div class="space-y-4">
+                <button
+                  class="flex items-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg w-full transition"
+                >
+                  <i class="fab fa-apple text-2xl mr-3"></i>
+                  <div class="text-left">
+                    <div class="text-xs">Download on the</div>
+                    <div class="font-bold">App Store</div>
+                  </div>
+                </button>
+                <button
+                  class="flex items-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg w-full transition"
+                >
+                  <i class="fab fa-google-play text-2xl mr-3"></i>
+                  <div class="text-left">
+                    <div class="text-xs">Get it on</div>
+                    <div class="font-bold">Google Play</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p>&copy; 2025 SafeRide.ma – All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a
+              href="https://x.com/saferideservice"
+              class="hover:text-yellow-400 transition"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/saferide.ma/"
+              class="hover:text-yellow-400 transition"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/saferide44/posts/?feedView=all"
+              class="hover:text-yellow-400 transition"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-yellow-500 text-white rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 invisible hover:bg-yellow-600"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // FAQ accordion
+      const faqBtns = document.querySelectorAll(".faq-btn");
+
+      faqBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const content = btn.nextElementSibling;
+          const icon = btn.querySelector("i");
+
+          content.classList.toggle("hidden");
+          icon.classList.toggle("transform");
+          icon.classList.toggle("rotate-180");
+        });
+      });
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.remove("opacity-0", "invisible");
+          backToTopBtn.classList.add("opacity-100", "visible");
+        } else {
+          backToTopBtn.classList.remove("opacity-100", "visible");
+          backToTopBtn.classList.add("opacity-0", "invisible");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+          }
+        });
+      });
+
+      // Add fade-in animation when elements come into view
+      const sections = document.querySelectorAll(".section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("fade-in");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>

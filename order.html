@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XALT - Product Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ====== GLOBAL STYLES ====== */
+      :root {
+        --black: #000000;
+        --white: #ffffff;
+        --yellow: #efc000;
+        --yellow-dark: #efc000;
+        --gray-dark: #222222;
+        --gray-light: #444444;
+        --gray-lighter: #333333;
+        --blue: #66b3ff;
+        --orange: #efc000;
+        --green: #00a800;
+        --red: #ff6b6b;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .product-images {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+      }
+
+      .product-details {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      /* ====== IMAGE GALLERY STYLES ====== */
+      .main-image-container {
+        position: relative;
+        margin-bottom: 15px;
+        border: 1px solid var(--gray-light);
+        padding: 10px;
+        background-color: var(--gray-lighter);
+        overflow: hidden;
+      }
+
+      .main-image {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        cursor: zoom-in;
+        display: block;
+        margin: 0 auto;
+        transition: transform 0.3s ease;
+      }
+
+      .zoom-icon {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: var(--yellow);
+      }
+
+      .thumbnail-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .thumbnail {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border: 1px solid var(--gray-light);
+        cursor: pointer;
+        transition: all 0.3s;
+        padding: 5px;
+        background-color: var(--gray-lighter);
+      }
+
+      .thumbnail:hover,
+      .thumbnail.active {
+        border-color: var(--yellow);
+        transform: scale(1.05);
+      }
+
+      /* ====== PRODUCT PAGE ====== */
+      .product-header {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #aaaaaa;
+      }
+
+      .product-title {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 5px;
+        line-height: 1.3;
+        color: var(--white);
+      }
+
+      .brand-link {
+        color: var(--yellow);
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .brand-link:hover {
+        text-decoration: underline;
+        color: var(--yellow-dark);
+      }
+
+      .rating-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .stars {
+        color: var(--yellow);
+        margin-right: 5px;
+        font-size: 18px;
+      }
+
+      .rating-count {
+        color: var(--yellow);
+        margin-left: 5px;
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+      .rating-count:hover {
+        text-decoration: underline;
+        color: var(--yellow-dark);
+      }
+
+      .price {
+        font-size: 18px;
+        color: var(--yellow);
+        margin-bottom: 5px;
+      }
+
+      .price-amount {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .price-range {
+        font-size: 14px;
+        color: #aaaaaa;
+        margin-bottom: 15px;
+      }
+
+      .price-info {
+        font-size: 14px;
+        color: #aaaaaa;
+        margin-bottom: 15px;
+      }
+
+      .option-section {
+        margin-bottom: 20px;
+      }
+
+      .option-title {
+        font-weight: bold;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 14px;
+        color: var(--white);
+      }
+
+      .option-select {
+        position: relative;
+        display: inline-block;
+        min-width: 200px;
+        margin-bottom: 5px;
+      }
+
+      .option-select select {
+        width: 100%;
+        padding: 8px 30px 8px 10px;
+        border: 1px solid var(--gray-light);
+        border-radius: 8px;
+        background-color: var(--gray-lighter);
+        color: var(--white);
+        appearance: none;
+        cursor: pointer;
+        font-size: 14px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .option-select::after {
+        content: "▼";
+        font-size: 12px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: var(--yellow);
+      }
+
+      .selected-option {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #aaaaaa;
+      }
+
+      /* QUANTITY SELECTOR STYLES */
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 10px;
+      }
+
+      .quantity-label {
+        font-weight: bold;
+        font-size: 16px;
+        color: var(--white);
+      }
+
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--gray-light);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .quantity-btn {
+        width: 40px;
+        height: 40px;
+        background-color: var(--gray-lighter);
+        color: var(--yellow);
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+      }
+
+      .quantity-btn:hover {
+        background-color: var(--gray-light);
+      }
+
+      .quantity-input {
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        border: none;
+        border-left: 1px solid var(--gray-light);
+        border-right: 1px solid var(--gray-light);
+        font-size: 16px;
+        font-weight: bold;
+        background-color: var(--gray-lighter);
+        color: var(--white);
+      }
+
+      .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        max-width: 300px;
+      }
+
+      .btn {
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: bold;
+      }
+
+      .btn-secondary {
+        background-color: var(--orange);
+        border: 1px solid var(--orange);
+        color: var(--black);
+        width: 100%;
+      }
+
+      .btn-secondary:hover {
+        background-color: #ffbf00;
+      } 
+
+      .delivery-info {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--gray-light);
+      }
+
+      .delivery-location {
+        color: var(--yellow);
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .delivery-location:hover {
+        text-decoration: underline;
+        color: var(--yellow-dark);
+      }
+
+      .stock-status {
+        color: var(--green);
+        font-size: 18px;
+        margin: 15px 0;
+      }
+
+      .highlight-item {
+        margin-bottom: 10px;
+        font-size: 14px;
+        position: relative;
+        padding-left: 20px;
+        color: var(--white);
+      }
+
+      .highlight-item::before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--yellow);
+        font-size: 20px;
+      }
+
+      .product-description {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid var(--gray-light);
+      }
+
+      .description-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: var(--yellow);
+      }
+
+      .description-text {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        color: var(--white);
+      }
+
+      .features-list {
+        list-style-type: none;
+        margin-bottom: 15px;
+      }
+
+      .features-list li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 20px;
+        font-size: 14px;
+        color: var(--white);
+      }
+
+      .features-list li::before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--yellow);
+        font-size: 20px;
+      }
+
+      /* ====== RESPONSIVE ADJUSTMENTS ====== */
+      @media (max-width: 768px) {
+        .product-title {
+          font-size: 20px;
+        }
+
+        .action-buttons {
+          max-width: 100%;
+        }
+
+        .product-images,
+        .product-details {
+          padding-right: 0;
+        }
+
+        .container {
+          gap: 20px;
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="product-images">
+        <div class="main-image-container">
+          <img
+            src="pics/white.png"
+            alt="XALT Women's Blouse - White"
+            class="main-image"
+            id="main-image"
+          />
+          <div class="zoom-icon">Click to zoom</div>
+        </div>
+
+        <div class="thumbnail-container" id="thumbnail-container">
+          <!-- Thumbnails will be loaded dynamically -->
+        </div>
+      </div>
+
+      <div class="product-details">
+        <div class="product-header">
+          Brand: <a href="#" class="brand-link">XALT</a>
+        </div>
+
+        <h1 class="product-title">
+          XALT – Smart Safety Device for Bikes, Motorcycles & Scooters | Crash
+          Detection & Auto Alert
+        </h1>
+
+        <div class="rating-container">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="#reviews" class="rating-count">5,992 ratings </a><p>(Based on 150 reviews)</p>
+          <span style="color: #aaaaaa"></span>
+        </div>
+
+        <div class="price">
+          Price:
+          <span class="price-amount">799 MAD</span>
+        </div>
+        <p>(Approx. $80 – based on your pricing strategy)</p>
+        <div class="stock-status">
+          <i class="fas fa-check-circle"></i> In Stock
+        </div>
+
+        <div class="option-section">
+          <label class="option-title">Color:</label>
+          <div class="option-select">
+            <select id="color-select">
+              <option value="">Select</option>
+              <option value="white" selected>White</option>
+              <option value="dark-green">Dark Green</option>
+              <option value="green">Green</option>
+              <option value="black">Black</option>
+              <option value="blue">Blue</option>
+              <option value="dark-blue">Dark Blue</option>
+            </select>
+          </div>
+          <div class="selected-option" id="selected-color">White</div>
+        </div>
+
+        <!-- QUANTITY SELECTOR -->
+        <div class="quantity-selector">
+          <span class="quantity-label">Quantity:</span>
+          <div class="quantity-controls">
+            <button class="quantity-btn" id="quantity-decrease">-</button>
+            <input
+              type="number"
+              class="quantity-input"
+              id="quantity-input"
+              min="1"
+              max="10"
+              value="1"
+              readonly
+            />
+            <button class="quantity-btn" id="quantity-increase">+</button>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <a href="buynow.html" class="btn btn-secondary">Buy Now</a>
+        </div>
+
+        <div class="delivery-info">
+          <div>
+            Deliver to <span class="delivery-location">ALL Morocco</span>
+            
+          </div>
+        
+
+        <div class="product-description">
+          <h3 class="description-title">About this item</h3>
+          <p class="description-text">
+            XALT is a compact, innovative device designed to keep you safe on
+            the go. Easily attachable to your bike, motorcycle, or electric
+            scooter, it automatically detects accidents or falls. When a crash
+            occurs, XALT sends a geolocated SMS to your emergency contact and
+            triggers a loud alert sound to get the attention of people nearby.
+            Stay connected, stay safe — wherever your ride takes you.
+          </p>
+          <div style="margin-top: 10px">
+            <h2>🛡 Technical Features:</h2>
+            <div class="highlight-item">
+              📍 Crash-Triggered Geolocation Alert
+            </div>
+            <div class="highlight-item">
+              🚨 Automatic Fall & Impact Detection
+            </div>
+            <div class="highlight-item">🔊 Built-in Audible Alarm</div>
+            <div class="highlight-item">🔋 Battery Life: 5 to 7 Days</div>
+            <div class="highlight-item">
+              🔧 Water & Shock Resistant (IP65 Rating)
+            </div>
+          </div>
+          <div style="margin-top: 10px">
+            <h2>📦 What’s in the Box:</h2>
+            <div class="highlight-item">
+              1x XALT Device
+            </div>
+            <div class="highlight-item">
+              1x USB-C Charging Cable
+            </div>
+            <div class="highlight-item">1x User Manual (French/Arabic)</div>
+            <div style="margin-top: 10px">
+    <h2>🔒 Warranty:</h2>
+    <div class="highlight-item">1-year manufacturer’s warranty
+</div>
+    <div class="highlight-item">Technical support included</div>
+</div>
+        </div>
+        <div style="margin-top: 10px">
+            <h2>📍 Shipping Info:</h2>
+            <div class="highlight-item">
+              ✅ Free delivery within Morocco
+            </div>
+            <div class="highlight-item">
+              ⏱ Ships in 2–5 business days
+            </div>
+            <div class="highlight-item">🔄 Free returns within 15 days
+      </div>
+      
+    </div>
+
+    <script>
+      // Product images data for each color
+      const productImages = {
+        white: ["pics/white.png"],
+        "dark-green": ["pics/dark green.png"],
+        green: ["pics/green.png"],
+        black: ["pics/black.png"],
+        blue: ["pics/blue.png"],
+        "dark-blue": ["pics/with green.png"],
+      };
+
+      // DOM elements
+      const colorSelect = document.getElementById("color-select");
+      const selectedColor = document.getElementById("selected-color");
+      const mainImage = document.getElementById("main-image");
+      const thumbnailContainer = document.getElementById("thumbnail-container");
+      const quantityInput = document.getElementById("quantity-input");
+      const decreaseBtn = document.getElementById("quantity-decrease");
+      const increaseBtn = document.getElementById("quantity-increase");
+
+      // Quantity control functionality
+      decreaseBtn.addEventListener("click", function () {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+          quantityInput.value = currentValue - 1;
+        }
+      });
+
+      increaseBtn.addEventListener("click", function () {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 10) {
+          quantityInput.value = currentValue + 1;
+        }
+      });
+
+      // Change images when color is selected
+      colorSelect.addEventListener("change", function () {
+        const selectedValue = this.value;
+        if (selectedValue) {
+          // Update selected color text
+          const selectedOptionText = this.options[this.selectedIndex].text;
+          selectedColor.textContent = selectedOptionText;
+
+          // Update product images
+          updateProductImages(selectedValue, selectedOptionText);
+        }
+      });
+
+      // Function to update product images based on color selection
+      function updateProductImages(colorValue, colorName) {
+        const images = productImages[colorValue];
+
+        // Update main image
+        if (images && images.length > 0) {
+          mainImage.src = images[0];
+          mainImage.alt = `XALT Women's Blouse - ${colorName}`;
+
+          // Update thumbnails
+          thumbnailContainer.innerHTML = "";
+          images.forEach((img, index) => {
+            const thumbnail = document.createElement("img");
+            thumbnail.src = img;
+            thumbnail.alt = `XALT Women's Blouse - ${colorName} - View ${
+              index + 1
+            }`;
+            thumbnail.className = "thumbnail";
+            if (index === 0) thumbnail.classList.add("active");
+            thumbnail.addEventListener("click", function () {
+              changeMainImage(this);
+            });
+            thumbnailContainer.appendChild(thumbnail);
+          });
+        }
+      }
+
+      // Change main image when thumbnail is clicked
+      function changeMainImage(thumbnail) {
+        // Remove active class from all thumbnails
+        document.querySelectorAll(".thumbnail").forEach((t) => {
+          t.classList.remove("active");
+        });
+
+        // Add active class to clicked thumbnail
+        thumbnail.classList.add("active");
+
+        // Update main image
+        mainImage.src = thumbnail.src;
+        mainImage.alt = thumbnail.alt;
+
+        // Reset zoom if applied
+        mainImage.style.transform = "scale(1)";
+      }
+
+      // Initialize with default color (white)
+      updateProductImages("white", "White");
+
+      // Add zoom functionality to main image
+      mainImage.addEventListener("click", function () {
+        if (this.style.transform === "scale(1.5)") {
+          this.style.transform = "scale(1)";
+        } else {
+          this.style.transform = "scale(1.5)";
+        }
+      });
+    </script>
+  </body>
+</html>
